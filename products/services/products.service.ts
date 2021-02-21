@@ -20,7 +20,7 @@ class ProductsService implements CRUD {
         return await ProductsDao.removeProductByName(name);
     };
 
-    async list(upperCase: boolean) {
+    async list(upperCase: string) {
         return await ProductsDao.getProducts(upperCase);
     };
 

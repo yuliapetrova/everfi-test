@@ -24,8 +24,8 @@ class ProductsDao {
         return product.id;
     }
 
-    async getProducts(upperCase: boolean) {
-        if (upperCase) {
+    async getProducts(upperCase: string) {
+        if (upperCase==='true') {
             return this.products.map(function(x){
                 return x.name.toUpperCase(); });
         } else {
@@ -41,7 +41,7 @@ class ProductsDao {
     }
 
     async getProductByName(name: string) {
-        const objIndex = this.products.findIndex((obj: { name: string; }) => obj.name.toLocaleLowerCase() === name.toLocaleLowerCase());
+        const objIndex = this.products.findIndex((obj: { name: string; }) => obj.name.toLowerCase() === name.toLowerCase());
         let currentProduct = this.products[objIndex];
         if (currentProduct) {
             return currentProduct;

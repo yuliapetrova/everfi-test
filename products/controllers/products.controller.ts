@@ -15,7 +15,7 @@ class ProductsController {
     }
 
     async listProducts(req: express.Request, res: express.Response) {
-        const products = await productService.list(req.params.upperCase = false);
+        const products = await productService.list(req.params.upperCase);
         res.status(200).send(products);
     }
 

@@ -1,5 +1,5 @@
 export interface CRUD {
-    list: (upperCase: boolean) => Promise<any>,
+    list: (upperCase: string) => Promise<any>,
     create: (resource: any) => Promise<any>,
     deleteByName: (name: any) => Promise<string>,
 }
