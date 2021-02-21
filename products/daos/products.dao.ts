@@ -5,7 +5,7 @@ const log: debug.IDebugger = debug('app:in-memory-dao');
 
 class ProductsDao {
     private static instance: ProductsDao;
-    users: Array<ProductDto> = [];
+    products: Array<ProductDto> = [];
 
     constructor() {
         log('Created new instance of ProductsDaoDao');
@@ -16,6 +16,28 @@ class ProductsDao {
             ProductsDao.instance = new ProductsDao();
         }
         return ProductsDao.instance;
+    }
+
+    async addProduct(product: ProductDto) {
+        product.id = shortid.generate();
+        this.products.push(product);
+        return product.id;
+    }
+
+    async getProducts(upperCase = false) {
+        if (upperCase) {
+            return this.products.map(function(x){
+                return x.name.toUpperCase(); });
+        } else {
+            return this.products.map(function(x){
+                return x.name; });
+        }
+    }
+
+    async removeProductByName(name: string) {
+        const objIndex = this.products.findIndex((obj: { id: string; }) => obj.id === name);
+        this.products.splice(objIndex, 1);
+        return `${name} removed`;
     }
 }
 

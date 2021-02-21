@@ -7,32 +7,23 @@ export class ProductsRoutes extends CommonRoutesConfig {
     }
 
     configureRoutes() {
-        this.app.route(`/products`)
+        this.app.route(`/vegetable`)
             .get((req: express.Request, res: express.Response) => {
-                res.status(200).send(`List of products`);
+                res.status(200).send(`List of vegetables`);
             })
             .post((req: express.Request, res: express.Response) => {
-                res.status(200).send(`Post to productss`);
+                res.status(200).send(`Post to vegetables`);
             });
 
-        this.app.route(`/products/:productId`)
+        this.app.route(`/vegetables/:name`)
             .all((req: express.Request, res: express.Response, next: express.NextFunction) => {
                 // this middleware function runs before any request to /products/:productId
                 // but it doesn't accomplish anything just yet---
                 // it simply passes control to the next applicable function below using next()
                 next();
             })
-            .get((req: express.Request, res: express.Response) => {
-                res.status(200).send(`GET requested for id ${req.params.productId}`);
-            })
-            .put((req: express.Request, res: express.Response) => {
-                res.status(200).send(`PUT requested for id ${req.params.productId}`);
-            })
-            .patch((req: express.Request, res: express.Response) => {
-                res.status(200).send(`PATCH requested for id ${req.params.productId}`);
-            })
             .delete((req: express.Request, res: express.Response) => {
-                res.status(200).send(`DELETE requested for id ${req.params.productId}`);
+                res.status(200).send(`DELETE requested vegetable for name ${req.params.name}`);
             });
 
         return this.app;
