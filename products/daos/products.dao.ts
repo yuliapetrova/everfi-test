@@ -24,7 +24,7 @@ class ProductsDao {
         return product.id;
     }
 
-    async getProducts(upperCase = false) {
+    async getProducts(upperCase: boolean) {
         if (upperCase) {
             return this.products.map(function(x){
                 return x.name.toUpperCase(); });
@@ -38,6 +38,16 @@ class ProductsDao {
         const objIndex = this.products.findIndex((obj: { id: string; }) => obj.id === name);
         this.products.splice(objIndex, 1);
         return `${name} removed`;
+    }
+
+    async getProductByName(name: string) {
+        const objIndex = this.products.findIndex((obj: { name: string; }) => obj.name.toLocaleLowerCase() === name.toLocaleLowerCase());
+        let currentProduct = this.products[objIndex];
+        if (currentProduct) {
+            return currentProduct;
+        } else {
+            return null;
+        }
     }
 }
 

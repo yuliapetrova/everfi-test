@@ -23,6 +23,10 @@ class ProductsService implements CRUD {
     async list(upperCase: boolean) {
         return await ProductsDao.getProducts(upperCase);
     };
+
+    async getProductByName(name: string) {
+        return ProductsDao.getProductByName(name);
+    }
 }
 
 export default ProductsService.getInstance();
