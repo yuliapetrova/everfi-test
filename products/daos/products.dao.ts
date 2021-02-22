@@ -35,7 +35,7 @@ class ProductsDao {
     }
 
     async removeProductByName(name: string) {
-        const objIndex = this.products.findIndex((obj: { id: string; }) => obj.id === name);
+        const objIndex = this.products.findIndex((obj: { name: string; }) => obj.name === name);
         this.products.splice(objIndex, 1);
         return `${name} removed`;
     }

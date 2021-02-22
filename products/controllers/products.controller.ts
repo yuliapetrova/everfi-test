@@ -20,8 +20,8 @@ class ProductsController {
     }
 
     async createProduct(req: express.Request, res: express.Response) {
-        const userId = await productService.create(req.body);
-        res.status(201).send({id: userId});
+        const productId = await productService.create(req.body);
+        res.status(201).send({id: productId});
     }
 
     async removeProduct(req: express.Request, res: express.Response) {

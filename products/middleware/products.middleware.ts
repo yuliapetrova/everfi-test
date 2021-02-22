@@ -27,6 +27,20 @@ class ProductsMiddleware {
             next();
         }
     }
+
+    async validateProductExists(req: express.Request, res: express.Response, next: express.NextFunction) {
+        const product = await productService.getProductByName(req.params.name);
+        if (product) {
+            next();
+        } else {
+            res.status(404).send({error: `Product ${req.params.userId} not found`});
+        }
+    }
+
+    async extractProductName(req: express.Request, res: express.Response, next: express.NextFunction) {
+        req.body.name = req.params.name;
+        next();
+    }
 }
 
 export default ProductsMiddleware.getInstance();

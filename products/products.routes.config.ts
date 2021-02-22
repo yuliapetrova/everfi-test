@@ -16,11 +16,11 @@ export class ProductsRoutes extends CommonRoutesConfig {
                 ProductsMiddleware.validateRequiredProductBodyFields,
                 ProductsMiddleware.validateSameNameDoesntExist,
                 ProductsController.createProduct);
-        //
-        // this.app.route(`/vagetable/:name`)
-        //     .all(ProductsMiddleware.validateProductExists)
-        //     .get(ProductsMiddleware.getProductById)
-        //     .delete(ProductsController.removeProduct);
+
+        this.app.param(`name`, ProductsMiddleware.extractProductName);
+        this.app.route(`/vagetable/:name`)
+            .all(ProductsMiddleware.validateProductExists)
+            .delete(ProductsController.removeProduct);
 
         return this.app;
     }
