@@ -1,6 +1,6 @@
 export interface ProductDto {
     id: string;
-    name?: string;
-    code?: string;
-    price?: number;
+    name: string;
+    code: string;
+    price: number;
 }
