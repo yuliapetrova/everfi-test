@@ -35,8 +35,8 @@ Tests against API running as an external process
     ✓ should add a product
     ✓ should get error message when add a product with existing name
     ✓ should get error message when add a product with missing price or code
-    ✓ should GET all vegetable names
-    1) should DELETE vegetable
+    ✓ should get all product names
+    1) should delete a product
 
 
   4 passing (3s)
