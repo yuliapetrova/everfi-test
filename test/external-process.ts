@@ -1,7 +1,7 @@
 import {expect} from "chai";
 import request from "supertest";
 
-describe('', () => {
+describe('Tests against API running as an external process', () => {
 
     beforeEach(done => setTimeout(done, 500));
 
@@ -34,14 +34,14 @@ describe('', () => {
         expect(response.body.error).to.be.equal('Missing required fields name, code and price');
     });
 
-    it('should GET all vegetable names', async () => {
+    it('should get all vegetable names', async () => {
 
         const response = await request('localhost:3000').get('/vegetable');
         expect(response.status).to.be.equal(200);
         expect(response.body[0]).to.be.equal('apple');
     });
 
-    it('should DELETE vegetable', async () => {
+    it('should delete vegetable', async () => {
 
         const response = await request('localhost:3000').delete('/vegetable/apple');
         expect(response.status).to.be.equal(204);
