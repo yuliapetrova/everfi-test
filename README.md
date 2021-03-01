@@ -30,6 +30,7 @@ Run the API tests:
 npm test
 ```
 
+```text
 Tests against API running as an external process
     ✓ should add a product
     ✓ should get error message when add a product with existing name
@@ -40,3 +41,4 @@ Tests against API running as an external process
 
   4 passing (3s)
   1 failing
+```
