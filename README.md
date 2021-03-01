@@ -29,3 +29,16 @@ Run the API tests:
 ```bash
 npm test
 ```
+
+```text
+Tests against API running as an external process
+    ✓ should add a product
+    ✓ should get error message when add a product with existing name
+    ✓ should get error message when add a product with missing price or code
+    ✓ should GET all vegetable names
+    1) should DELETE vegetable
+
+
+  4 passing (3s)
+  1 failing
+```
